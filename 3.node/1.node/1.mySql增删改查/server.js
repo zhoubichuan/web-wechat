@@ -35,4 +35,4 @@ let userSearchSql = "SELECT * FROM userinfo";
 connection.query(userSearchSql, function(err, result) {
   console.log("查" + JSON.stringify(result));
 });
-// connection.end();
+connection.end();
