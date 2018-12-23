@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>box-sizing</title>
+</head>
+<style>
+    .main,
+    .left,
+    .right {
+        min-height: 150px;
+        float: left;
+    }
+
+    .main {
+        width: 100%;
+        padding: 0 200px 0 300px;
+        box-sizing: border-box;
+    }
+
+    .container {
+        background: red;
+    }
+
+    .left {
+        background: yellow;
+        width: 300px;
+        margin-left: -100%;
+    }
+
+    .right {
+        background: green;
+        width: 200px;
+        margin-left: -200px;
+    }
+
+    body::after {
+        content: ""
+    }
+</style>
+
+<body>
+    <div class="main">
+        <div class="container">中间</div>
+    </div>
+    <div class="left">左边</div>
+    <div class="right">右边</div>
+</body>
+
+</html>

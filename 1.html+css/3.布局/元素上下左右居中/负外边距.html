@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>负外边距</title>
+</head>
+<style>
+	.father {
+		width: 200px;
+		height: 200px;
+		border: 1px solid black;
+	}
+
+	.middle {
+		width: fit-content;
+		margin: 0 auto;
+	}
+
+	.children {
+		height: 50px;
+		width: 50px;
+		background-color: red;
+	}
+</style>
+
+<body>
+	<div class="father">
+		<div class="middle">
+			<div class="children"></div>
+		</div>
+	</div>
+	<script>
+		let ele = document.querySelector('.father')
+		setInterval(function () {
+			ele.style.height = 170 + Math.random() * 60 + "px"
+			ele.style.width = 150 + Math.random() * 100 + "px"
+		}, 500)
+	</script>
+</body>
+
+</html>

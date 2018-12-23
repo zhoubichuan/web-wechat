@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位</title>
+</head>
+<style>
+	.father {
+		width: 200px;
+		height: 200px;
+		border: 1px solid black;
+		position: relative;
+	}
+
+	.children {
+		height: 50px;
+		width: 50px;
+		background-color: red;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+	}
+</style>
+
+<body>
+
+	<div class="father">
+		<div class="children"></div>
+	</div>
+	<script>
+		let ele = document.querySelector('.father')
+		setInterval(function () {
+			ele.style.height = 170 + Math.random() * 60 + "px"
+			ele.style.width = 150 + Math.random() * 100 + "px"
+		}, 500)
+	</script>
+</body>
+
+</html>
