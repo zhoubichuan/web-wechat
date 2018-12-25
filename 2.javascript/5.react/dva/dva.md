@@ -64,3 +64,10 @@
 * 在组件设计方法中，我们提到过 Container Components ,在 dva 中我们通常将其约束为 Route Components
 * 因为在 dva 中我们通常以页面维度来设计 Container Components
 * 所以在 dva 中，通常需要 connet Model 的组件都是 Route Components ,组织在/routes/目录下，而/components/目录下则是纯组件
+### 安装
+```
+npm install -g dva-cli
+dva new my-dva
+cd my-dva
+npm start
+```

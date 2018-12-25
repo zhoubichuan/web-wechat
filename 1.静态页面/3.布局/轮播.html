@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//轮播图		
+			var div_lb =document.createElement('div');
+				div_lb.style.position='absolute';			
+				div_lb.style.width='480px';
+				div_lb.style.height='300px';
+				div_lb.style.top='0px';
+				div_lb.style.left=0;
+				document.body.appendChild(div_lb);
+				for(var i=0;i<5;i++){
+			var input =document.createElement('input');
+				input.style.position='absolute';			
+				input.style.width='30px';
+				input.style.height='20px';
+				input.style.top=50*(i+2)+'px';				
+				input.value=i+1;
+				input.style.left='500px';
+				div_lb.appendChild(input );
+			var img =document.createElement('img');
+				img.style.position='absolute';			
+				img.style.width='480px';
+				img.style.height='300px';
+				img.style.top='50px';
+				img.style.left=0;
+				img.src='img/s-banner'+(1+i)+'.jpg'
+				img.style.background='red';
+				div_lb.appendChild(img);	
+				}
+			var i_l =document.createElement('i');
+				i_l.style.position='absolute';			
+				i_l.style.top='200px';
+				i_l.style.left=0;
+				i_l.innerHTML='&gt;'
+				div_lb.appendChild(i_l);
+			var i_r =document.createElement('i');
+				i_r.style.position='absolute';			
+				i_r.style.top='200px';
+				i_r.style.right=0;
+				i_r.innerHTML='&lt;'
+				div_lb.appendChild(i_r);
+			var aInputs = document.getElementsByTagName('input');
+			var aDivs = div_lb.getElementsByTagName('img');
+			var i = document.getElementsByTagName('i');
+			aInputs[0].style.background = 'red';			
+			var timer1=0
+			var timer2=0
+//封装一个定时器函数	
+			var y=0;
+			f=function(){
+				for (var j = 0;j<aInputs.length;j++) {
+					aInputs[j].style.background = '';
+					aDivs[j].style.display = 'none';
+					}
+				aInputs[y%aInputs.length].style.background = 'red';
+				aDivs[y%aInputs.length].style.display = 'block';
+				y++;
+			}
+//鼠标移入时停止自动轮播
+			div_lb.onmouseover=function(){
+			clearInterval(timer1);
+			clearInterval(timer2);
+			}
+//鼠标移出时开始自动轮播			
+			div_lb.onmouseout=function(){
+			clearInterval(timer1);
+			clearInterval(timer2);
+			timer2=setInterval(f,1000)
+			}
+			timer1=setInterval(f,1000)
+//静态时的轮播图
+				
+				for(var a=0;a<2;a++){
+					i[a].index = a;
+				i[a].onclick=function(){
+					x++;
+					for (var j = 0;j<aInputs.length;j++) {
+						aInputs[j].style.background = '';
+						aDivs[j].style.display = 'none';
+					}
+			
+					if(this.index==0){
+					aInputs[x%aInputs.length].style.background = 'red';
+					aDivs[x%aInputs.length].style.display = 'block';
+					}
+					if(this.index==1){
+						aInputs[aInputs.length-1-x%aInputs.length].style.background = 'red';
+					    aDivs[aInputs.length-1-x%aInputs.length].style.display = 'block';		
+					}
+					}				
+				}
+//选择上标时自动切图
+				var x=0;
+			for(var i = 0;i<aInputs.length;i++){
+				aInputs[i].index = i;
+				aInputs[i].onclick = function(){
+					for (var j = 0;j<aInputs.length;j++) {
+						aInputs[j].style.background = '';
+						aDivs[j].style.display = 'none';
+					}
+					this.style.background = 'red';
+					aDivs[this.index].style.display = 'block';
+					x=this.index;
+				}				
+			}
+		</script>
+	</body>
+</html>
