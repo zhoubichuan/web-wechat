@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>{{school.name}}{{school.age}}{{school.address}}
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                msg: 'hello world',
+                school: { name: 'zbc', age: 8 }
+            }
+        })
+    </script>
+</body>
+
+</html>
