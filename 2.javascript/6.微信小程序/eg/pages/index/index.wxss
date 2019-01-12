@@ -1,0 +1,29 @@
+/* pages/index/index.wxss */
+
+page {
+  background: lemonchiffon;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+view > image {
+  margin-top: 100px;
+  width: 2bbbbb00rpx;
+}
+
+.container open-data {
+  margin-top: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+button, button::after {
+  background: none;
+  border: none;
+  content: none;
+}

@@ -1,0 +1,16 @@
+<!--pages/home/home.wxml-->
+<swiper>
+  <swiper-item>
+    <image src="/images/vue.png"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src='/images/react.jpg'></image>
+  </swiper-item>
+</swiper>
+<view wx:for="{{str}}" wx:key="*this" wx:for-item="s">
+  <text>{{s}}{{index}}</text>
+</view>
+<view wx:for="{{lesson}}" wx:key="id">
+  <image src='{{item.image}}'></image>
+  <text>{{item.id}}</text>
+</view>
