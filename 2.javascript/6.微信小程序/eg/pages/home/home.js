@@ -1,4 +1,8 @@
 // pages/home/home.js
+import {
+  HTTP
+} from "../../utils/http-promise.js"
+let http = new HTTP()
 Page({
 
   /**
@@ -7,32 +11,43 @@ Page({
   data: {
     indicator: true,
     str: ["/images/vue.png", "/images/react.jpg"],
-    lesson: [{
-        id: 1,
-        image: "/images/vue.png"
-      },
-      {
-        id: 2,
-        image: "/images/react.jpg"
-      },
-      {
-        id: 3,
-        image: "/images/vue.png"
-      },
-      {
-        id: 4,
-        images: "/images/react.jpg"
-      }
-    ]
+    lesson: [],
+    swiper: []
   },
 
+  onToH5(e) {
+    let url = e.target.dataset.url
+    console.log(url)
+    wx.navigateTo({
+      url: `/pages/webView/webView?url=${encodeURIComponent(url)}`
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options)
+    this.getSwiper()
+    this.getLesson()
+  },
+  getSwiper() {
+    http.request({
+      url: '/getSliders'
+    }).then(data => {
+      this.setData({
+        swiper: data
+      })
+    })
   },
 
+  getLesson(){
+    http.request({
+      url:'/getLessons'
+    }).then(data=>{
+      this.setData({
+        lesson:data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

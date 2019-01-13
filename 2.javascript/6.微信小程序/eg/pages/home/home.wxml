@@ -1,11 +1,10 @@
 <!--pages/home/home.wxml-->
-<swiper>
+<swiper indicator-dots='{{indicator}}' autoplay='true' circular='true'>
+  <block wx:for="{{swiper}}" wx:key="contentId">
   <swiper-item>
-    <image src="/images/vue.png"></image>
+  <image src='{{item.photoUrl}}' catchtap='onToH5' data-url="{{item.url}}"></image>
   </swiper-item>
-  <swiper-item>
-    <image src='/images/react.jpg'></image>
-  </swiper-item>
+  </block>
 </swiper>
 <view wx:for="{{str}}" wx:key="*this" wx:for-item="s">
   <text>{{s}}{{index}}</text>

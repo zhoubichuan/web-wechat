@@ -1,17 +1,21 @@
-// pages/detail/detail.js
+// pages/webView/webView.js
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-
+    h5Url: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    let url = decodeURIComponent(options.url)
+    this.setData({
+      h5Url: url
+    })
   },
 
   /**
@@ -60,10 +64,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-    return {
-      title: "自定义转发标题",
-      path: "/pages/home/home",
-      imageUrl: "/images/vue.png"
-    }
+
   }
 })

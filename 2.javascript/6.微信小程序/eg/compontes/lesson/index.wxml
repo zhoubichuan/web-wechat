@@ -1,0 +1,1 @@
+<text bindtap="onTap">hello{{info.name}}</text>

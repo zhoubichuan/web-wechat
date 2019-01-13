@@ -1,2 +1,5 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<button bindtap="onChooseAddr">获取收货地址</button>
+<button bindtap="onChooseLocation">获取用户选择位置</button>
+<button bindtap="onGetLocation">显示用户位置</button>
+<lesson-cmp info="{{info}}" data-info="{{info}}" bindmyEvent="onMyEvent"></lesson-cmp>
