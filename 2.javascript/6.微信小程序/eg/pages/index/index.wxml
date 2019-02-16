@@ -10,9 +10,5 @@
 <view class='container'>
   <block wx:for="{{lesson}}" wx:key="id">
     <lesson-cmp item="{{item}}" bindmyEvent="onMyEvent"></lesson-cmp>
-    <image src='{{item.poster}}' mode="widthFix"></image>
-    <text>{{item.title}}</text>
-    <text>{{item.price}}</text>
-    <view>星级</view>
   </block>
 </view>

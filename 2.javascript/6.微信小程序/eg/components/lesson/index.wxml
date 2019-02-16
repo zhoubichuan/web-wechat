@@ -1,4 +1,4 @@
-<view class="less-item" catchtap='onTap' data-detail="{{item}}">
+<view class="lesson-item" catchtap='onTap' data-detail="{{item}}">
   <image class='lesson-img' src='{{item.poster}}' mode='widthFix'></image>
   <text>{{item.title}}</text>
   <text>{{item.price}}</text>

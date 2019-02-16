@@ -7,7 +7,6 @@ Component({
     }
   },
   data:{
-
   },
   methods:{
     onTap(e){

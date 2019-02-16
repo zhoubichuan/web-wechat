@@ -18,7 +18,7 @@
     "uploadFile": 20000,
     "downloadFile": 20000
   },
-  "tarBar": {
+  "tabBar": {
     "selectedColor": "#e94840",
     "backgroundColor": "#fff",
     "list": [
@@ -28,6 +28,7 @@
         "iconPath": "/images/home2.png",
         "selectedIconPath": "/images/home.png"
       },
+      
       {
         "pagePath": "pages/my/my",
         "text": "我的",

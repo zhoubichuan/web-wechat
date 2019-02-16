@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "我的",
   "usingComponents": {
-    "lesson-cmp": "/compontes/lesson/index"
+    "lesson-cmp": "/components/lesson/index"
   }
 }
