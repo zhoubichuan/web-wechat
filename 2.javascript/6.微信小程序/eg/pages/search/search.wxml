@@ -1,0 +1,36 @@
+<!--pages/search/search.wxml-->
+<view class='header'>
+  <view class='search-input'>
+    <icon type='search' size='14'></icon>
+    <input value='{{keyWord}}' focus='true' placeholder='搜索' confirm-type='search' bindconfirm='onConfirm'></input>
+    <image src='/image/cancel.png' style='width:20px;height:20px' bindtap='onCancel'></image>
+  </view>
+  <text>取消</text>
+</view>
+<view hidden='{{showLesson}}'>
+  <view class='search-box'>
+    <view class='border-title'>热门搜索</view>
+    <view class='search-content'>
+      <block wx:for="{{hotLesson}}" wx:key="*this">
+        <text bindtap='onConfirm' data-value="{{item}}">{{item}}</text>
+      </block>
+    </view>
+  </view>
+  <view class='search-box' wx:if="{{historySearch.length > 0}}">
+    <view class='border-title'>历史搜索</view>
+    <view class='search-content'>
+      <block wx:for="{{historySearch}}" wx:key="*this">
+        <text bindtap='onConfirm' data-value="{{item}}">{{item}}</text>
+      </block>
+    </view>
+    <view class='clear-storage' bindtap='romveStorage'>清除历史搜索</view>
+  </view>
+</view>
+<view class='container' hidden='{{!showLesson}}'>
+  <block wx:for="{{lesson}}" wx:key="id">
+    <lesson-cmp item="{{item}}"></lesson-cmp>
+  </block>
+  <view class='on-data' src="/images/no-data.png" mode="widthFix"></view>
+  <view class='none-tips'>暂无数据~</view>
+  <view class='nomore' wx:if="{{noMore}}">~没有更多了</view>
+</view>

@@ -1,29 +1,21 @@
 /* pages/index/index.wxss */
-
-page {
-  background: lemonchiffon;
-}
-
-.container {
+.nav-title {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  margin: 20rpx;
+}
+.all-lesson {
+  height: 16px;
+  line-height: 16px;
+  font-size: 16px;
+  color: #ccc;
+}
+.all-lesson text{
+  padding: 0 10rpx;
+}
+.container{
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
   justify-content: center;
-  align-items: center;
-}
-
-view > image {
-  margin-top: 100px;
-  width: 2bbbbb00rpx;
-}
-
-.container open-data {
-  margin-top: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-button, button::after {
-  background: none;
-  border: none;
-  content: none;
 }

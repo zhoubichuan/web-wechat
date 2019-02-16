@@ -1,0 +1,6 @@
+{
+  "component":true,
+  "usingComponents":{
+    "star-cmp":"/components/star/index"
+  }
+}

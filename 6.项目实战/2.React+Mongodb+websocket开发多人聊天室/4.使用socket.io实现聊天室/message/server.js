@@ -15,10 +15,10 @@ let io = require("socket.io")(server);
 const SYSTEM='系统';
 const ALL_USERS={};
 
-io.on("connection", socket => {
+io.on("connection", async socket => {
   let username;
-  socket.on('message',message=>{
-    console.log('message',message)
+  let rooms=[];
+  socket.on('message',async message=>{
     if(username){
       let changeNameReg=/^changename:(.+)$/;
       let changeNameResult=message.match(changeNameReg);
@@ -45,13 +45,26 @@ io.on("connection", socket => {
             content:toContent,
             createAt:new Date()
           })
+        }else{
+          socket.emit('message',{
+            username:SYSTEM,
+            content:`你想私聊的用户名${toUser}不存在`,
+            createAt:new Date()
+          })
         }
       }else{
-        io.emit('message',{
+        let doc={
           username,
-          content:message,
-          createAt:new Date()
-        })
+          content:message
+        }
+
+        if(rooms.length>0){
+          rooms.forEach(room=>{
+            io.in(room).emit('message',doc)
+          })
+        }else{
+          io.emit('message',doc)
+        }
       }
     }else{
       username=message;
@@ -62,5 +75,70 @@ io.on("connection", socket => {
         createAt:new Date()
       })
     }
+  })
+  //加入某个房间 一个客户端可以同时在多个房间内
+  socket.on('join',roomName=>{
+    let index=rooms.findIndex(item=>item === roomName);
+    if(index == -1){
+      socket.join(roomName)
+      rooms.push(roomName);
+      socket.emit('message',{
+        username:SYSTEM,
+        content:`你已经成功的加入到了${roomName}房间内`,
+        createAt:new Date()
+      })
+      socket.broadcast.to(roomName).emit('message',{
+        username:SYSTEM,
+        content:`${username}已经成功进入了${roomName}房间`,
+        createAt:new Date()
+      });
+      //告诉 客户端我已经成功的进入了某个房间
+      socket.emit('joined',roomName)
+    }else{
+      socket.emit('message',{
+        username:SYSTEM,
+        content:`别闹!你已经在这个房间内了`,
+        createAt:new Date()
+      })
+    }
+  })
+  //离开某个房间
+  socket.on('leave',roomName=>{
+    let index=rooms.findIndex(item=>item===roomName);
+    if(index==-1){
+      socket.emit('message',{
+        username:SYSTEM,
+        content:`别闹！你根本就不在这个房间内`,
+        createAt:new Date()
+      })
+    }else{
+      socket.leave(roomName);
+      rooms.splice(index,1);
+      socket.emit('message',{
+        username:SYSTEM,
+        content:`你已经成功的离开了${roomName}房间`,
+        createAt:new Date()
+      })
+
+      socket.broadcast.to(roomName).emit('message',{
+        username:SYSTEM,
+        content:`${username}已经成功的离开了${roomName}房间`,
+        createAt:new Date()
+      })
+
+      socket.emit('leaved',roomName)
+    }
+  })
+
+  socket.on('getAllMessages',async ()=>{
+    // let messages=await Message.find().sort({createAt:-1}.limit(20));
+    // messages.reverse();
+    let message={msg:'ok'}
+    socket.emit('allMessages',messages)
+  })
+
+  socket.on('room',roomName=>{
+    let sockets=io.sockets.adapter.rooms[roomName].sockets;
+    let count=Object.keys(sockets)
   })
 });

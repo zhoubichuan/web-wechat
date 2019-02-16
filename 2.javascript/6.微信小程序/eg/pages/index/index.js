@@ -1,44 +1,42 @@
 // pages/index/index.js
+import {
+  HTTP
+} from "../../utils/http-promise.js"
+let http = new HTTP()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    avatarUrl: ''
+    swiper: [],
+    lesson: []
   },
-  onTap(event) {
+  onMyEvent(e) {
+    console.log(e)
+    let detail = e.detail;
     wx.navigateTo({
-      url: '/pages/detail/detail?p=hello'
+      url: `/pages/detail/detail?id=${detail.id}&title=${detail.title}`
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting["scope.userInfo"]) {
-          wx.getUserInfo({
-            success: res => {
-              this.setData({
-                avatarUrl: res.userInfo.avatarUrl,
-                nickName: res.userInfo.nickName
-              })
-            }
-          })
-        } else {
-          console.log('未授权')
-        }
-      }
+    this.getLesson()
+  },
+  getSwiper() {
+
+  },
+  getLesson() {
+    http.request({
+      url: '/getLessons'
+    }).then(data => {
+      this.setData({
+        lesson: data
+      })
     })
   },
-onGetUserInfo(event){
-this.setData({
-  avatarUrl:event.detail.userInfo.avatarUrl,
-  nickName:event.detail.userInfo.nickName
-})
-},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

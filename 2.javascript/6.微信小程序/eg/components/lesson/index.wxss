@@ -1,0 +1,17 @@
+/* components/lesson/index.wxss */
+.lesson-item{
+  display: flex;
+  width: 355rpx;
+  margin: 10rpx;
+  padding: 20rpx;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  box-shadow: 5px 5px 5px #ddd;
+  box-sizing: border-box;
+}
+.lesson-img{
+  width: 100%;
+}

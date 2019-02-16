@@ -1,0 +1,12 @@
+/* pages/lesson/lesson.wxss */
+.header {
+  background: green;
+  padding: 10px;
+}
+.header-search{
+  height: 20px;
+  padding: 10px;
+  border-radius: 30px;
+  border: 1px soid #f5f5f5;
+  background: #f5f5f5;
+}

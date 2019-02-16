@@ -1,10 +1,18 @@
 <!--pages/index/index.wxml-->
-<view class='container' bindtap='onTap' id='view' data-info="{{avatarUrl}}">
-  <block wx:if="{{avatarUrl}}">
-    <image id='image' data-info-avatarUrl="{{avatarUrl}}" src='{{avatarUrl}}' mode='widthFix'></image>
-    <text>{{nickName}}</text>
+<image src='/images/vue.png' mode="widthFix" style='width:100%'></image>
+<view class='nav-title'>
+  <view class='border-title'>最新课程</view>
+  <navigator class='all-lesson' url='/pages/lesson/lesson'>
+    <text>全部课程</text>
+    <image src='/images/arrow.png' style='width:7px;height:13px'></image>
+  </navigator>
+</view>
+<view class='container'>
+  <block wx:for="{{lesson}}" wx:key="id">
+    <lesson-cmp item="{{item}}" bindmyEvent="onMyEvent"></lesson-cmp>
+    <image src='{{item.poster}}' mode="widthFix"></image>
+    <text>{{item.title}}</text>
+    <text>{{item.price}}</text>
+    <view>星级</view>
   </block>
-  <button wx:else open-type="getUserInfo" bindgetuserinfo='onGetUserInfo'>
-    <image src="/images/weixin.png" style='width:200rpx;height:200rpx;'></image>
-  </button>
 </view>

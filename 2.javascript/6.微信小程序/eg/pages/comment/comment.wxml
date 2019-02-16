@@ -1,0 +1,16 @@
+<!--pages/comment/comment.wxml-->
+<view class='comment-container'>
+  <view class='title'>
+    <text>评价</text>
+    <view class='stars-container'>
+      <view class='stars'>
+        <block wx:for="{{[1,2,3,4,5]}}" wx:key="*this" wx:for-item="i">
+          <image bindtap='onTap' data-index="{{i}}" src='{{stars > i ? "images/star.png" : "/images/none-star.png"}}'></image>
+        </block>
+      </view>
+    </view>
+  </view>
+  <textarea placeholder='写点什么吧' focus="true" bindinput='textAreaCon'></textarea>
+  <image class='uploadFile' wx:if="{{imgUrl}}" src='{{imgUrl}}'></image>
+  <view wx:else class='uploadFile' bindtap='upload'>+</view>
+</view>

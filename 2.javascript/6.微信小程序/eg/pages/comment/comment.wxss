@@ -1,0 +1,38 @@
+/* pages/comment/comment.wxss */
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.commnet-container textarea{
+  width: 94%;
+  margin: 0 auto;
+  max-height: 200px;
+  border-top: 1px solid #f5f5f5;
+  padding: 10px 0;
+}
+stars-container {
+  display: flex;
+  flex-direction: row;
+}
+.stars {
+  display: flex;
+  height: 17rpx;
+  margin-right: 24rpx;
+}
+.stars image{
+  padding-left: 10rpx;
+  height: 40rpx;
+  width: 40rpx;
+}
+.uploadFile {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ddd;
+  color: #999;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}

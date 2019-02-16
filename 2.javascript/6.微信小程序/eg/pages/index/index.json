@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "lesson-cmp":"/components/lesson/index"
+  },
+  "navigationBarTitleText":"首页"
 }

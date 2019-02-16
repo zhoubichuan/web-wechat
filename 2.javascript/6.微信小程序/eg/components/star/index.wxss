@@ -1,0 +1,15 @@
+/* components/star/index.wxss */
+.stars-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.stars{
+  display: flex;
+  flex-direction: row;
+}
+.stars-container image{
+  padding-left: 4rpx;
+  height: 18rpx;
+  width: 18rpx;
+}

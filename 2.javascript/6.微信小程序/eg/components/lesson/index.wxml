@@ -1,0 +1,8 @@
+<view class="less-item" catchtap='onTap' data-detail="{{item}}">
+  <image class='lesson-img' src='{{item.poster}}' mode='widthFix'></image>
+  <text>{{item.title}}</text>
+  <text>{{item.price}}</text>
+  <star-cmp stars="{{item.stars}}">
+  <text slot="bottom">{{item.score}}</text>
+  </star-cmp> 
+</view>
