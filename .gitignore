@@ -1,6 +1,7 @@
 .DS_Store
 node_modules/
 相关软件/
+book/
 /dist/
 npm-debug.log*
 yarn-debug.log*
