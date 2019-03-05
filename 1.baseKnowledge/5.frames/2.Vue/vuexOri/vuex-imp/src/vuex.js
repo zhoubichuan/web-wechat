@@ -25,7 +25,7 @@ class ModuleCollection {
     }
   }
 }
-
+function installModule(store, rootState, path, rootModule) {}
 class Store {
   constructor(options) {
     let state = options.state;
@@ -38,28 +38,31 @@ class Store {
       }
     });
     this.modules = new ModuleCollection(options);
-    if (options.getters) {
-      let getters = options.getters;
-      forEach(getters, (getterName, getterFn) => {
-        Object.defineProperty(this.getters, getterName, {
-          get: () => {
-            return getterFn(state);
-          }
-        });
-      });
-    }
-    let mutations = options.mutations;
-    forEach(mutations, (mutationName, mutationFn) => {
-      this.mutations[mutationName] = () => {
-        mutationFn.call(this, state);
-      };
-    });
-    let actions = options.actions;
-    forEach(actions, (actionName, actionFn) => {
-      this.actions[actionName] = () => {
-        actionFn.call(this, this);
-      };
-    });
+
+    installModule(this, state, [], this.modules.root);
+
+    // if (options.getters) {
+    //   let getters = options.getters;
+    //   forEach(getters, (getterName, getterFn) => {
+    //     Object.defineProperty(this.getters, getterName, {
+    //       get: () => {
+    //         return getterFn(state);
+    //       }
+    //     });
+    //   });
+    // }
+    // let mutations = options.mutations;
+    // forEach(mutations, (mutationName, mutationFn) => {
+    //   this.mutations[mutationName] = () => {
+    //     mutationFn.call(this, state);
+    //   };
+    // });
+    // let actions = options.actions;
+    // forEach(actions, (actionName, actionFn) => {
+    //   this.actions[actionName] = () => {
+    //     actionFn.call(this, this);
+    //   };
+    // });
     let { commit, dispatch } = this;
     this.commit = type => {
       commit.call(this, type);
