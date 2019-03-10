@@ -7,8 +7,6 @@ module.exports = {
     path: path.join(__dirname, "dist"),
     //打包后的文件名
     filename: "bundle.js"
-  },
-  module: {},
-  plugins: []
+  }
 };
 
