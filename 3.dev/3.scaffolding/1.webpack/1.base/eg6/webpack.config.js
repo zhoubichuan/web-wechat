@@ -44,6 +44,19 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+            plugins: [
+              ["@babel/plugin-proposal-class-properties", { loose: true }],
+              ["@babel/plugin-proposal-decorators", { legacy: true }]
+            ]
+          }
+        }
+      },
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
       },
