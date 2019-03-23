@@ -13,7 +13,7 @@ selenium-debug.log
 # Editor directories and files
 .idea
 .vscode
-*.suo
+*.suo2.config
 *.ntvs*
 *.njsproj
 *.sln
