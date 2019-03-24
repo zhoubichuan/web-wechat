@@ -29,7 +29,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./index.html",
       filename: "index.html",
       minify: {
         removeAttributeQuotes: true,
@@ -50,8 +50,8 @@ module.exports = {
           options: {
             presets: ["@babel/preset-env"],
             plugins: [
-              ["@babel/plugin-proposal-class-properties", { loose: true }],
-              ["@babel/plugin-proposal-decorators", { legacy: true }]
+              ["@babel/plugin-proposal-decorators", { legacy: true }],
+              ["@babel/plugin-proposal-class-properties", { loose: true }]
             ]
           }
         }
