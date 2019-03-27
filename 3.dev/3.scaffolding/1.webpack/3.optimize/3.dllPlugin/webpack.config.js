@@ -14,10 +14,13 @@ module.exports = {
     contentBase: "./dist"
   },
   plugins: [
+    new webpack.DllReferencePlugin({
+      manifest: path.resolve(__dirname, "dist", "manifest.json")
+    }),
+    new webpack.IgnorePlugin(/\.\/locale/, /moment/),
     new HtmlWebpackPlugin({
       template: "./public/index.html"
-    }),
-    new webpack.IgnorePlugin(/\.\/locale/, /moment/)
+    })
   ],
   module: {
     noParse: /jquery/, //不去解析jquery中的依赖库
