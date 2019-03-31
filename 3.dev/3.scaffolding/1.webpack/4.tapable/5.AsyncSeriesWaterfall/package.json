@@ -1,0 +1,16 @@
+{
+  "name": "5.AsyncSeriesWaterfall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tabable": "^1.0.0",
+    "tapable": "^1.1.1"
+  }
+}
