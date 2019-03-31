@@ -4,7 +4,7 @@ class SyncHook {
     //args => ['name']
     this.tasks = [];
   }
-  tap() {
+  tap(name, task) {
     this.tasks.push(task);
   }
   call(...args) {
