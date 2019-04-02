@@ -1,0 +1,15 @@
+{
+  "name": "mypack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "bin": {
+    "mypack": "./bin/mypack.js"
+  },
+  "devDependencies": {
+    "@babel/generator": "^7.4.0",
+    "@babel/traverse": "^7.4.0",
+    "@babel/types": "^7.4.0",
+    "babylon": "^6.18.0"
+  }
+}
