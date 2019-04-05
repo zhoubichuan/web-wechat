@@ -21,7 +21,27 @@ class Complier {
     this.root = process.cwd();
   }
   getSource(modulePath) {
+    let rules = this.config.module.rules;
     let content = fs.readFileSync(modulePath, "utf8");
+
+    for (let i = 0; i < rules.length; i++) {
+      let rule = rules[i];
+      let { test, use } = rule;
+      let len = use.length - 1;
+      if (test.test(modulePath)) {
+        function normalLoader() {
+          let loader = require(use[len--]);
+          console.log(loader, content, "888888888888888888");
+
+          content = loader(content);
+          if (len > 0) {
+            normalLoader();
+          }
+        }
+        normalLoader();
+      }
+    }
+
     return content;
   }
   //解析源码 AST解析语法树

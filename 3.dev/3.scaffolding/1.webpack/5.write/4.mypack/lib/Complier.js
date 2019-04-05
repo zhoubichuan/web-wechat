@@ -42,15 +42,15 @@ class Complier {
         }
       }
     });
-    let sourceCode = generator(ast).node;
+    let sourceCode = generator(ast).code;
     return { sourceCode, dependencies };
   }
   buildModule(modulePath, isEntry) {
     let source = this.getSource(modulePath);
     //模块id modulePath = modulePath-this.root
-    let moduleName = path.relative(this.root, modulePath);
+    let moduleName = "./" + path.relative(this.root, modulePath);
     if (isEntry) {
-      this.entryId = this.getSource(modulePath);
+      this.entryId = moduleName;
     }
     //解析需要把source源码进行改造 返回一个依赖列表
     let { sourceCode, dependencies } = this.parse(

@@ -22,10 +22,10 @@ class Complier {
   buildModule(modulePath, isEntry) {
     let source = this.getSource(modulePath);
     //模块id modulePath = modulePath-this.root
-    let moduleName = path.relative(this.root, modulePath);
+    let moduleName = "./" + path.relative(this.root, modulePath);
     console.log(source, moduleName);
     if (isEntry) {
-      this.entryId = this.getSource(modulePath);
+      this.entryId = moduleName;
     }
     //解析需要把source源码进行改造 返回一个依赖列表
     this.parse(source, path.dirname(moduleName));

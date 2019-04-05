@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   }
