@@ -97,3 +97,14 @@
 [6.less-loader和url-loader](./6.loader/6.less-loader)
 
 [7.css-loader](./6.loader/7.css-loader)
+
+## 手写webpack插件
+[1.webpack流程介绍](./7.plugin/1.intorduce)
+
+[2.webpack中的插件](./7.plugin/2.plugin)
+
+[3.文件列表插件](./7.plugin/3.document)
+
+[4.内联webpack插件](./7.plugin/4.inline)
+
+[5.打包后自动发布](./7.plugin/5.auto)
