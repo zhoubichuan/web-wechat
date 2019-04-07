@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- 只要模板中使用了数据 必须在实列上声明 -->
+
+<body>
+    <div id="app">
+        {{msg}} {{info.xxx}} {{info.address}} {{info.arr}}
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            // template: '<h1>hello world</h1>',
+            data: {//存放数据
+                msg: 'hello',
+                info: {
+                    xxx: 'xxx',
+                    arr:[12,3,4]
+                }
+            }
+        })
+        // vm.info.xxx = 'hello'
+        vm.msg='word'
+        vm.info.address='address'
+        vm.info.xxx='hello'
+        //把數據代理給了vm
+
+        // vm.$set(vm.info,'address','hello1')
+        
+        vm.info.arr.push(12)
+        vm.info.arr.push--
+
+        //vue实列上的方法
+        vm.$el
+        console.log(vm.$el.innerHTML)
+
+        console.log(vm.$options)
+
+        vm.arr=[4,3,5,6]
+        vm.arr=[7,9,0]//数据变化后更新视图操作使异步执行的
+        vm.$nextTick(()=>{
+            console.log(vm.$el.innerHTML)
+            console.log(vm.$options)
+        })
+
+        vm.$watch('info.xxx',function(newValue,oldValue){//多次更新只会触发一次
+            console.log(newValue,oldValue)
+        })
+        vm.info.xxx="nnnnn"
+    </script>
+</body>
+
+</html>
