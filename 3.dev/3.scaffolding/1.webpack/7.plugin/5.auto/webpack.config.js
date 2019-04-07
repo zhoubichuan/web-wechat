@@ -9,7 +9,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath:'http://xxxx.com'
+    publicPath:'http://pplgarg0j.bkt.clouddn.com/'
   },
   module: {
     rules: [
@@ -30,10 +30,10 @@ module.exports = {
       filename: "list.md"
     }),
     new UploadPlugin({
-      bucket:'zhoubichuan',
-      domain:'',
+      bucket:'imgstatic',
+      domain:'pplgarg0j.bkt.clouddn.com',
       accessKey:'q5iDsC65UaWs8ni8quwboTq7Yth-4TipXSuiE3Ml',
-      secretKey:'q5iDsC65UaWs8ni8quwboTq7Yth-4TipXSuiE3Ml'
+      secretKey:'KAi4ewk1gSf_UPkS4PyMK-efL7GyIpDN0ESxQsyk'
     })
   ]
 };
