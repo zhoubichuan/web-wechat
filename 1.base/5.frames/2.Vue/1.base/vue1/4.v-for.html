@@ -13,11 +13,29 @@
         <ul>
             <li v-for="(fruit,index) in fruits">{{index}}{{fruit}}</li>
         </ul>
+        <template v-for="i in 3">
+            <div :key="i+'_i'">{{i}}</div>
+            <div :key="i">{{i}}</div>
+        </template>
+        <!-- v-if v-else会比较里面的dom如果相同就不更新 可以写key区分 -->
+        <div v-if="flag">
+            <span>123</span>
+            <input type="text" key="1">
+        </div>
+        <div v-else>
+            <span>abc</span>
+            <input type="text" key='2'>
+        </div>
+        <!-- 尽量不要使用index作为key 如果内容变了标签没有变会重写渲染页面 性能消耗更大-->
+        <!-- 如果有唯一标识 尽量使用唯一标识 内容变了只是移动 标签不会重写渲染页面-->
+
+
     </div>
     <script src="./node_modules/vue/dist/vue.js"></script>
     <script>
         let vm = new Vue({
             el: "#app",
+            flag: true,
             data: {
                 fruits: ['芒果', '荔枝', '榴莲'],
                 iphones: [
