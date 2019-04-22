@@ -36,8 +36,8 @@ Child(); //运行会报错
 //类的原理
 //类的调用检测检测实列是不是new出来的
 function _classCallCheck(instance, constructor) {
-  if (!(instance instanceof constructor)) {
-    throw new Error("Class constructor Child cannot be invoked without");
+  if (!(instance instanceof constructor)) {0000000000
+ 4   throw new Error("Class constructor Child cannot be invoked without");
   }
 }
 //constructor是构造函数
