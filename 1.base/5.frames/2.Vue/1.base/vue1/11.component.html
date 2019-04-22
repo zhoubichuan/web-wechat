@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>oomponent</title>
+</head>
+
+<body>
+    <!-- 如果想在父级中 绑定原生事件给组件 需要加.native 不加就认为是一个普通属性 -->
+    <div id="app">
+        <my-button @click.native="change"></my-button>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                content: '点我啊'
+            },
+            methods:{
+                change(){
+                    alert(1)
+                }
+            },
+            components: {
+                'MyButton': {
+                    template: `<button>点我啊</button>`
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
