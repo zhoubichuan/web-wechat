@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>component</title>
+</head>
+
+<body>
+    <!-- 如果想在父级中 绑定原生事件给组件 需要加.native 不加就认为是一个普通属性 -->
+    <div id="app">
+        {{name | capitalize(4)}}
+        <my-component></my-component>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        //过滤器也是有全局 局部
+        //指令和过滤器函数中的this都是window
+        Vue.component('my-component',function(resolve){
+            setTimeout(()=>{
+                resolve({
+                    template:"<h1>world</h1>"
+                })
+            },5000)
+
+        })
+        Vue.filter('capitalize',function(value,len){
+            return value.slice(0,len).toUpperCase()+value.slice(1)
+        })
+        //过滤器不会改变原参数
+       //只改变数据的展示形式 并不会改变原数据 computed
+       let vm=new Vue({
+           el:"#app",
+           data:{
+               flag:false,
+               name:'zfjg'
+           }
+       })
+
+    </script>
+</body>
+
+</html>
