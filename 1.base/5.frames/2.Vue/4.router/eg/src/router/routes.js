@@ -17,35 +17,22 @@ export default [
       default: Home,
       name: Name,
       version: Version
-    },
-    beforeEnter(to, from, next) {
-      console.log("home");
     }
   },
   {
     path: "/login",
     name: "login",
-    component: () => "@component/login",
-    beforeEnter(to, from, next) {
-      console.log("login");
-    }
+    component: () => "@component/login"
   },
   {
     path: "/profile",
     name: "profile",
-    component: () => "@component/profile",
-    beforeEnter(to, from, next) {
-      console.log("profile");
-    }
+    component: () => "@component/profile"
   },
   {
     path: "/detail/:id",
     name: "detail",
-    component: () => "@component/UserDetail.vue",
-    beforeEnter(to, from, next) {
-      console.log("profile");
-      next();
-    }
+    component: () => "@component/UserDetail.vue"
   },
   {
     path: "/user",
@@ -69,6 +56,7 @@ export default [
     ],
     beforeEnter(to, from, next) {
       console.log("user");
+      next();
     }
   },
   {
