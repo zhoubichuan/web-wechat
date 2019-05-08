@@ -29,7 +29,18 @@
 ### 3.异步
 
 ### 4.ES6
-
+- [1.let和const](./2.stand/1.ECMA/4.es6/1.let&const)
+- [2.解构赋值](./2.stand/1.ECMA/4.es6/2.解构赋值)
+- [3.模板字符串](./2.stand/1.ECMA/4.es6/3.模板字符串)
+- [4.箭头函数](./2.stand/1.ECMA/4.es6/4.箭头函数)
+- [5.展开运算符](./2.stand/1.ECMA/4.es6/5.展开运算符)
+- [6.数组的方法](./2.stand/1.ECMA/4.es6/6.数组方法)
+- [7.对象](./2.stand/1.ECMA/4.es6/7.对象)
+- [8.继承](./2.stand/1.ECMA/4.es6/8.继承)
+- [9.类的编译](./2.stand/1.ECMA/4.es6/9.类的编译)
+- [10.类的继承](./2.stand/1.ECMA/4.es6/10.类的继承)
+- [11.promise](./2.stand/1.ECMA/4.es6/11.promise)
+- [12.promise原理](./2.stand/1.ECMA/4.es6/11.promise)
 #### 1.模块化
 
 #### 2.Class
