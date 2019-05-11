@@ -10,7 +10,7 @@ export default {
   beforeRouteEnter(to, from, next) {
     //此方法中不能拿到this
     if (from.name === "userAdd") {
-      alert("是这里过来的");
+      alert("useradd是这里过来的");
     }
     next(vm => {
       console.log(vm);
