@@ -1,13 +1,13 @@
 <template>
   <div>
-      <div>UserDetail{{this.$route.query.id}}</div>問號傳參
-  {{this.$route.params.id}}通過路徑
+    <div>UserDetail{{ this.$route.query.id }}</div>
+    问号传参 {{ this.$route.params.id }}通过路径
   </div>
 </template>
 <script>
 export default {
   beforeRouteEnter(to, from, next) {
-      console.log('enter')
+    console.log("enter");
     next();
   },
   //

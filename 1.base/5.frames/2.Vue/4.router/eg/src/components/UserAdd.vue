@@ -1,7 +1,7 @@
 <template>
   <div>
-      <input type="text" v-model="username">
-      <button @click="toList">去列表页</button>
+    <input type="text" v-model="username" />
+    <button @click="toList">去列表页</button>
   </div>
 </template>
 <script>

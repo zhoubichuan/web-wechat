@@ -1,7 +1,4 @@
 import Home from "@/components/Home";
-import Login from "@/components/Login";
-import Profile from "@/components/Profile";
-import User from "@/components/User";
 import Name from "@/components/Name";
 import Version from "@/components/Version";
 
@@ -13,7 +10,7 @@ export default [
   {
     path: "/home",
     name: "home",
-    component: {
+    components: {
       default: Home,
       name: Name,
       version: Version
@@ -22,22 +19,23 @@ export default [
   {
     path: "/login",
     name: "login",
-    component: () => "@component/login"
+    component: () => import("@/components/Login")
   },
   {
     path: "/profile",
     name: "profile",
-    component: () => "@component/profile"
+    component: () => import("@/components/Profile"),
+    meta: { needLogin: true } //路由元信息
   },
   {
     path: "/detail/:id",
     name: "detail",
-    component: () => "@component/UserDetail.vue"
+    component: () => import("@/components/UserDetail.vue")
   },
   {
     path: "/user",
     name: "user",
-    component: () => "@component/user",
+    component: () => import("@/components/User"),
     children: [
       {
         path: "",
@@ -52,6 +50,15 @@ export default [
         path: "list",
         name: "userList",
         component: () => import("@/components/UserList.vue")
+      },
+      {
+        path: "detail/:id",
+        name: "userDetail",
+        component: () => import("@/components/UserDetail.vue"),
+        boforeEnter(to, from, next) {
+          console.log("xxxx");
+          next();
+        }
       }
     ],
     beforeEnter(to, from, next) {

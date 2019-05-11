@@ -8,18 +8,10 @@
           </div>
         </div>
         <ul class="navbar-nav nav">
-          <li>
-            <router-link :to="{ name: 'home' }">首页</router-link>
-          </li>
-          <li>
-            <router-link :to="{ name: 'profile' }">个人中心</router-link>
-          </li>
-          <li>
-            <router-link :to="{ path: '/user' }">用户</router-link>
-          </li>
-          <li>
-            <router-link :to="{ name: 'login' }">登录</router-link>
-          </li>
+          <li><router-link :to="{ name: 'home' }">首页</router-link></li>
+          <li><router-link :to="{ name: 'profile' }">个人中心</router-link></li>
+          <li><router-link :to="{ path: '/user' }">用户</router-link></li>
+          <li><router-link :to="{ name: 'login' }">登录</router-link></li>
         </ul>
       </ul>
     </div>
@@ -34,3 +26,5 @@
 <script>
 export default {};
 </script>
+
+<style lang="less"></style>
