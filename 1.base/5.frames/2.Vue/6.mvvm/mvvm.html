@@ -13,10 +13,17 @@
         <input type="text" v-model="school.name">
         <div>{{school.name}}</div>
         <div>{{school.age}}</div>
+        <!-- 如果数据不变化 视图就不会刷新 -->
+        {{getNewName}}
+        <!-- 我们在内部 会匹配 {{}} -->
         <ul>
             <li>1</li>
             <li>2</li>
         </ul>
+        <button v-on:click="change">按钮</button>
+        <div v-html="message">
+
+        </div>
     </div>
     <!-- <script src="/node_modules"></script> -->
     <script src="mvvm.js"></script>
@@ -24,16 +31,21 @@
         let vm = new Vue({
             el: '#app',
             data: {
+                message: '<h1>1212121</h1>',
                 school: {
                     name: '我',
                     age: 20
                 }
             },
-            methods:{
+            methods: {
+                chagne() {
 
+                }
             },
-            computed:{
-                
+            computed: {
+                getNewName() {
+                    return this.school.name + '架构'
+                }
             }
         })
     </script>
