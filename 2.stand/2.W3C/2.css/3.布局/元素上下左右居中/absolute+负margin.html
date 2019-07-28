@@ -3,24 +3,30 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>不定高的div居中</title>
+	<title>absolute+负margin</title>
 </head>
 <style>
 	.father {
 		width: 200px;
 		height: 200px;
 		border: 1px solid black;
-		display: table-cell;
-		text-align: center;
-		vertical-align: middle;
+		position: relative;
 	}
 
 	.children {
-		display: inline-block;
+		height: 50px;
+		width: 50px;
+		background-color: red;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: -50px;
+		margin-top: -50px;
 	}
 </style>
 
 <body>
+
 	<div class="father">
 		<div class="children">123</div>
 	</div>

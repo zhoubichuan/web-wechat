@@ -3,27 +3,31 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>行内块元素</title>
+	<title>absolute+margin auto</title>
 </head>
 <style>
 	.father {
 		width: 200px;
 		height: 200px;
 		border: 1px solid black;
-		text-align: center;
-		overflow: auto;
+		position: relative;
 	}
 
-	.father:after {
-		content: "";
-		display: inline-block;
-		vertical-align: middle;
-		height: 100%;
-		margin-left: 0.25em;
+	.children {
+		height: 50px;
+		width: 50px;
+		background-color: red;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
 	}
 </style>
 
 <body>
+
 	<div class="father">
 		<div class="children"></div>
 	</div>

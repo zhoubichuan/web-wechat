@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>行内块元素</title>
+</head>
+<style>
+.box{
+	width:200px;
+	height:200px;
+	border: 1px solid black;
+	writing-mode: vertical-lr;
+	text-align: center;
+}
+.father {
+	writing-mode: horizontal-tb;
+	display: inline-block;
+	text-align:center;
+	width:100%;
+}
+.children {
+	display:inline-block;
+	margin: auto;
+	text-align: left;
+}
+</style>
+
+<body>
+	<div class="box">
+		<div class="father">
+			<div class="children">123</div>
+		</div>
+	</div>
+	<script>
+		let ele = document.querySelector('.box')
+		setInterval(function () {
+			ele.style.height = 170 + Math.random() * 60 + "px"
+			ele.style.width = 150 + Math.random() * 100 + "px"
+		}, 500)
+	</script>
+</body>
+
+</html>

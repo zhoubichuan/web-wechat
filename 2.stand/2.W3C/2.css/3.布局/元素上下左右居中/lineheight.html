@@ -3,20 +3,24 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>不定高的div居中</title>
+	<title>lineheight</title>
 </head>
 <style>
 	.father {
 		width: 200px;
 		height: 200px;
 		border: 1px solid black;
-		display: table-cell;
+		line-height: 200px;
 		text-align: center;
-		vertical-align: middle;
+		font-size: 0;
 	}
 
 	.children {
+		font-size: 16px;
 		display: inline-block;
+		vertical-align: middle;
+		line-height: initial;
+		text-align: left;
 	}
 </style>
 
