@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>v-for</title>
+    <title>生命周期</title>
 </head>
 
 <body>
@@ -18,39 +18,63 @@
         let vm = new Vue({
             el: '#app',
             data: {
-                a: 1
+                a: 1,
+                timer: null
             },
-            beforeCreate() {//钩子函数
-                console.log(this, this.$data)//初始化自己的生命周期 并且 绑定自己的事件
+            beforeCreate() { //钩子函数
+                console.log('---beforeCreate---')
+                console.log('$el :  ' + this.$el);
+                console.log('data  :  ', this, this.$data) //初始化自己的生命周期 并且 绑定自己的事件
             },
             created() {
-                console.log(this.$data, this)//可以获取数据和调用方法
+                console.log('---create---')
+                console.log('$el :  ' + this.$el);
+                console.log('data  :  ', this, this.$data) //可以获取数据和调用方法
             },
-            beforeMount() {//第一次调用渲染函数之前
-                console.log('渲染前')
+            beforeMount() {
+                console.log('---beforeMount---')
+                console.log('$el :  ' + this.$el);
+                console.log('data  :  ', this, this.$data)
             },
-            mounted() {//获取真实dom 因为页面已经渲染完了
+            mounted() {
+                console.log('---mounted--')
+                console.log('$el :  ' + this.$el);
+                console.log('data  :  ', this, this.$data)
                 console.log('渲染后', this.$el.innerHTML)
                 this.a = 100;
                 this.timer = setInterval(() => {
-
-                })
+                    console.log(1)
+                }, 1000)
             },
             beforeUpdate() {
+                console.log('---beforeUpdate---')
+                console.log('$el :  ' + this.$el);
+                console.log('data  :  ', this, this.$data)
                 this.b = 200;
                 console.log('更新前')
             },
-            updated() {//一般不要操作数据 可能会导致死循环
+            updated() {
+                console.log('---updated---')
+                console.log('$el :  ' + this.$el);
+                console.log('data  :  ', this, this.$data)
+                //一般不要操作数据 可能会导致死循环
                 console.log('更新后')
             },
-            beforeDestory(){
+            beforeDestory() {
+                console.log('---beforeDestory---')
+                console.log('$el :  ' + this.$el);
+                console.log('data  :  ', this, this.$data)
                 //当前实列可以用
                 clearInterval(this.timer)
+                timer = null
                 console.log('销毁前')
             },
-            destory(){
+            destory() {
+                console.log('---destory---')
+                console.log('$el :  ' + this.$el);
+                console.log('data  :  ', this, this.$data)
                 //实列上的方法 监听都被移除掉
-            }//第一种路由切换
+            } //第一种路由切换
         })
         vm.$destory()
     </script>
