@@ -10,7 +10,24 @@ Vue.use(vuex)
 
 export default new vuex.Store({
     modules: {
-        user
+        user,
+        a: {
+            state: {
+                count: 200
+            },
+            mutations: {
+                change(state) {
+                    console.log('----')
+                }
+            },
+            modules: {
+                b: {
+                    state: {
+                        count: 3000
+                    }
+                }
+            }
+        },
     },
     // strict:process.env.NODE_ENV !=='production',
     actions,

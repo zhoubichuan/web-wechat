@@ -1,3 +1,4 @@
-export default{
-    lesson:'vuex学习'
+export default {
+    lesson: 'vuex学习',
+    count: 100
 }
