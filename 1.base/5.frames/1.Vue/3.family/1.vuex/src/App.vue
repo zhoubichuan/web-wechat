@@ -1,37 +1,26 @@
 <template>
   <div id="app">
-    {{lesson}}
-    {{className}}
-    {{u}}
-    {{getNewName}}
-    {{getNewUserName}}
+    {{this.$store.state.count}}
+    {{this.$store.getters.newCount}}
+    {{this.$store.state.a.b.count}}
     <button
       @click="change"
-    >修改状态</button>
+    >add</button>
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from "./store/vuex";
 export default {
   name: "app",
-  methods: {
-    ...mapActions("user", ["change_user"]),
-    change() {
-      this.$store.state.user.userName = "hello world";
-      this["change_user"]("jw");
-      this.$store.commit("user/change_user", "jw");
-      this.$store.dispatch("user/change_user", "jw");
-    }
-  },
   mounted() {
     console.log(this.$store);
   },
-  computed: {
-    ...mapState(["lesson", "className"]),
-    ...mapState("user", { u: s => s.userName }),
-    ...mapGetters(["getNewName"]),
-    ...mapGetters("user", ["getNewUserName"])
+  methods: {
+    change() {
+      this.$store.dispatch("change");
+    }
   }
 };
-</script> 
+</script>
+<style>
+</style>
