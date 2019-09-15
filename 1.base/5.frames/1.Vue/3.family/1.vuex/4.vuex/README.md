@@ -1,4 +1,4 @@
-# vue-cli3.0
+# 5.vuex
 
 ## Project setup
 ```
