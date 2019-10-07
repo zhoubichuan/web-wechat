@@ -82,7 +82,6 @@ class Store { // state getters mutations actions
         state
       }
     });
-    debugger
     // 把模块直接的关系进行整理  自己根据用户传入的参数维护了一个对象 
     // root._children=>a._children=>b
     this.modules = new ModuleCollection(options);
