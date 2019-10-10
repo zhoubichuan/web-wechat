@@ -6,7 +6,6 @@
 </template>
 <script>
 import child from './child'
-  debugger
 export default {
   components: {
     child

@@ -16,7 +16,6 @@
   </div>
 </template>
 <script>
-debugger
 export default {
   data(){
     return {a:1}
