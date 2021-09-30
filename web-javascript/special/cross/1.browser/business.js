@@ -1,5 +1,5 @@
 var $ = document.querySelector.bind(document);
-var insertHtml = function(result) {
+var insertHtml = function (result) {
   var html = `<tr>
                 <td>序号</td>
                 <td>姓名</td>
@@ -11,21 +11,15 @@ var insertHtml = function(result) {
   result.data.map((val, index) => {
     html += `<tr>
                 <td> ${val.id}</td>
-                <td><span>${
-                  val.s_name
-                }</span><input class="form-control" type="text" value="${
-      val.s_name
-    }" ></td>
-                <td><span>${
-                  val.s_math
-                }分</span><input class="form-control" type="text" value="${
-      val.s_math
-    }" ></td>
-                <td><span>${
-                  val.s_english
-                }分</span><input class="form-control" type="text" value="${
-      val.s_english
-    }" ></td>
+                <td><span>${val.s_name
+      }</span><input class="form-control" type="text" value="${val.s_name
+      }" ></td>
+                <td><span>${val.s_math
+      }分</span><input class="form-control" type="text" value="${val.s_math
+      }" ></td>
+                <td><span>${val.s_english
+      }分</span><input class="form-control" type="text" value="${val.s_english
+      }" ></td>
                 <td><input class="delete btn btn-danger" type="button" value="删除" ></td>
                 <td><input class="change btn btn-info" type="button" value="修改" ></td>
             </tr>`;
@@ -47,7 +41,7 @@ globalRequest.getRequest(result => {
 // };
 
 //添加
-$("#addInformation").onclick = function() {
+$("#addInformation").onclick = function () {
   var s_name = this.previousElementSibling.children[1].childNodes[1].value;
   var s_math = this.previousElementSibling.children[3].childNodes[1].value;
   var s_english = this.previousElementSibling.children[5].childNodes[1].value;
@@ -56,7 +50,7 @@ $("#addInformation").onclick = function() {
   });
 };
 
-$(".table-striped").onclick = function(e) {
+$(".table-striped").onclick = function (e) {
   //删除
   if (e.target.className == "delete btn btn-danger") {
     var id = e.target.parentNode.parentNode.cells[0].innerText;
