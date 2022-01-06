@@ -5,6 +5,7 @@ module.exports = {
             'Access-Control-Allow-Origin': "*"
         }
     },
+    publicPath: './',
     configureWebpack: {
         output: {
             library: "sub1",

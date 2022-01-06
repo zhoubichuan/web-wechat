@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div id="nav">
-      <router-link to="/base">Home</router-link> |
-      <router-link to="/base/about">About</router-link>|
-      <router-link to="/sub1">sub1(vue3)</router-link> |
-      <router-link to="/sub2">sub2(react)</router-link>
-    </div>
+    <el-menu id="nav" mode="horizontal" router=true>
+      <el-menu-item index="/base">Home</el-menu-item>
+      <el-menu-item index="/base/about">About</el-menu-item>
+      <el-menu-item index="/sub1">sub1(vue3)</el-menu-item>
+      <el-menu-item index="/sub2">sub2(react)</el-menu-item>
+    </el-menu>
     <router-view v-show="$route.name" />
     <div id="sub1" v-show="!$route.name"></div>
     <div id="sub2" v-show="!$route.name"></div>

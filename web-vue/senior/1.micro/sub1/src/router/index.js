@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 const routes = [
   {
     path: '/',
-    redirect: '/sub1'
+    redirect: '/sub1/about1'
   },
   {
     path: '/sub1',

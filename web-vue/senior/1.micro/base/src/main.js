@@ -2,10 +2,14 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import { registerMicroApps, start } from "qiankun";
 import microApps from "./micro-app";
 
-createApp(App).use(store).use(router).mount('#app')
+const app = createApp(App)
+app.use(ElementPlus)
+app.use(store).use(router).mount('#app')
 
 const config = {
   // 挂载前回调
@@ -29,4 +33,6 @@ const config = {
 };
 
 registerMicroApps(microApps, config);
-start();
+start({
+  prefetch:false
+});
