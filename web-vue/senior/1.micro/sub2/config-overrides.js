@@ -2,7 +2,7 @@ module.exports = {
     webpack: (config) => {
       config.output.library = `sub2`
       config.output.libraryTarget = "umd"
-      config.output.publicPath = "//localhost:5052/"
+      config.output.publicPath = "http://localhost:5052/"
       return config
     },
     devServer: function(configFunction) {

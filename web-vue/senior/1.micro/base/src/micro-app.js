@@ -1,14 +1,14 @@
 const microApps = [
   {
     name: "sub1",
-    entry: "//localhost:5501",
-    activeRule: "/sub1",
+    entry: "http://localhost:5501",
+    activeRule: "sub1",
     container: "#sub1",
   },
   {
     name: "sub2",
-    entry: "//localhost:5052",
-    activeRule: "/sub2",
+    entry: "http://localhost:5052",
+    activeRule: "sub2",
     container: "#sub2",
   },
 ];
