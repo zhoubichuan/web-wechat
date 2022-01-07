@@ -32,7 +32,7 @@ const config = {
   ],
 };
 
-registerMicroApps(microApps, config);
+registerMicroApps(microApps(ElementPlus), config);
 start({
   prefetch:false
 });

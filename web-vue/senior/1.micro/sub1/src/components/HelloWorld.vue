@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    sub1 home页
+    <h1>{{msg}}</h1>
   </div>
 </template>
 
