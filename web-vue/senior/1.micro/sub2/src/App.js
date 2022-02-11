@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Link, Routes } from 'react-router-dom'
-const BASE_NAME = window.__POWERED_BY_QIANKUN__ ? "/sub2" : ""
+const BASE_NAME = window.__POWERED_BY_QIANKUN__ ? "/sub2/" : ""
 
 function App() {
   return (
