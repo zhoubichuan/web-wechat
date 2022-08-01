@@ -1,9 +1,0 @@
-{
-  "name": "mypack",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "bin": {
-    "mypack": "./bin/mypack.js"
-  }
-}
